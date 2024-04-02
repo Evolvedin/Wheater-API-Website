@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #mapContainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        #map,
+        #cityImage {
+            flex: 1;
+            height: 400px;
+            margin: 0 10px;
+            border-radius: 10px;
+        }
+
+        #cityImage {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Weather App</h1>
+    <p>Enter a city name to get the current weather and see the location on the map:</p>
+    <input type="text" id="cityName" placeholder="City Name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult"></div>
+    <div id="mapContainer">
+        <div id="map"></div>
+        <img id="cityImage" src="" alt="City Image">
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('cityImage').addEventListener('error', function () {
+            this.style.visibility = 'hidden'; 
+        });
+
+        document.getElementById('cityImage').addEventListener('load', function () {
+            this.style.visibility = 'visible'; 
+        });
+    </script>
+</body>
+
+</html>
